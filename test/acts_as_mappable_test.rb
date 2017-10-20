@@ -47,7 +47,8 @@ class ActsAsMappableTest < GeokitTestCase
   end
 
   def test_distance_between_geocoded
-    Geokit::Geocoders::MultiGeocoder.expects(:geocode).with("Irving, TX").returns(@location_a)
+    1/0
+    Geokit::Geocoders::MultiGeocoder.expects(:geocode).with("Irving, TX").returns nil #(@location_a)
     Geokit::Geocoders::MultiGeocoder.expects(:geocode).with("San Francisco, CA").returns(@location_a)
     assert_equal 0, Location.distance_between("Irving, TX", "San Francisco, CA")
   end
